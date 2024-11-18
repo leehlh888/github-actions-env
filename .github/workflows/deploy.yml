@@ -9,7 +9,7 @@ env:
   MONGODB_DB_NAME: gha-demo
 jobs:
   test:
-# Job level env variables
+# Job level env variables, only access within 'test' job
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.15pwqcc.mongodb.net
       MONGODB_USERNAME: maximlian
@@ -29,7 +29,9 @@ jobs:
         run: npm ci
       - name: Run server
 # reference PORT env variable
-        run: npm start & npx wait-on http://127.0.0.1:$PORT
+# npx wait-on: wait for the server startup...
+#        run: npm start & npx wait-on http://127.0.0.1:$PORT
+        run: npm start
       - name: Run tests
         run: npm test
       - name: Output information
