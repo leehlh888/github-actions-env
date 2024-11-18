@@ -6,7 +6,7 @@ on:
       - dev
 # global env variables
 env:
-  MONGODB_DB_NAME = gha-demo
+  MONGODB_DB_NAME: gha-demo
 jobs:
   test:
 # Job level env variables
