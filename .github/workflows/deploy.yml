@@ -4,16 +4,18 @@ on:
     branches:
       - main
       - dev
-# global env variables
+# global env variables 
 env:
   MONGODB_DB_NAME: gha-demo
 jobs:
   test:
+# use env specific variables 'testing', u can define 'sit', 'pot', ...
 # Job level env variables, only access within 'test' job
+# for github actions secrets, github actions will always hide this info, not show in any of the workflow logs
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.15pwqcc.mongodb.net
       MONGODB_USERNAME: maximlian
-      MONGODB_PASSWORD: XXX
+      MONGODB_PASSWORD: ${{secrets.MONGODB_PASSWORD}}
       PORT: 8080
     environment: testing
     runs-on: ubuntu-latest
