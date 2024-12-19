@@ -2,7 +2,9 @@
 import { test, expect } from '@playwright/test';
 
 test('event creation', async ({ request }) => {
-  const testTitle = 'Test event 111';
+
+// insert this record to MongoDB Atlas's gha-demo.events 
+  const testTitle = 'Test event 999';
   const response = await request.post('/', {
     data: {
       title: testTitle,
